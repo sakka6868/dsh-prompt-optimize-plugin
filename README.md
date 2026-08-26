@@ -24,7 +24,7 @@
 
 ![应用后效果](docs/assets/applied.png)
 
-> 以上为当前版本(0.0.1/v10)真实运行截图(`docs/assets/`);演示草稿为通用示例「帮我写一个周报生成工具」。截图可由 `scripts/demo-shots.mjs` 自动重新生成。
+> 以上为当前版本(0.0.2/v10)真实运行截图(`docs/assets/`);演示草稿为通用示例「帮我写一个周报生成工具」。截图可由 `scripts/demo-shots.mjs` 自动重新生成。
 
 ## ✨ 核心亮点
 
@@ -48,7 +48,7 @@
 ### 方式二:静态插件(npm 包,正式推荐)
 
 ```powershell
-dsh plugin --profile web add dsh-prompt-optimize-plugin@0.0.1
+dsh plugin --profile web add dsh-prompt-optimize-plugin
 ```
 
 然后在 `~/.dsh/profiles/web/cordis.patch.yml` 注册插件行:
@@ -95,6 +95,7 @@ dsh plugin --profile web add dsh-prompt-optimize-plugin@0.0.1
 | LLM 调用 | `llm.stream(options: GenerateOptions)`,`maxTokens 4096`、`temperature 0.3` |
 | 草稿写入口 | `InputActions.setDraft(text)` |
 | 输入状态 | `useInput((s) => s)` → `InputState.draft` |
+| 系统提示词 | `OPTIMIZE_SYSTEM`(`src/host.js` 与 `lib/index.js` 同源):任务目标与预期输出、必要上下文(仅基于用户提供信息)、五步改写流程、输出格式与长度、约束条件(不编造具体事实、保留原文要素) |
 
 ## 目录结构
 

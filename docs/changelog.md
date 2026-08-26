@@ -2,6 +2,13 @@
 
 ## 发行版(npm)
 
+### 0.0.2(dsh-prompt-optimize-plugin,2026-08-26)
+
+- `OPTIMIZE_SYSTEM` 系统提示词重写为五段结构:任务目标与预期输出、必要上下文(仅基于用户已提供信息)、五步改写流程、输出格式与长度、约束条件(不得编造具体事实;保留代码片段、命令、标识符、路径、数值等原文内容);
+- 结合输入框场景明确:优化结果会应用回输入框作为下一条消息,必须输出完整、独立、可直接发送的提示词;
+- `src/host.js` 与 `lib/index.js` 同步更新,拼接方式由 `.join(' ')` 改为 `.join('\n')` 以保留分段结构;
+- 已发布至 npm(`latest` → 0.0.2),并安装到 `~/.dsh/profiles/web`。
+
 ### 0.0.1(dsh-prompt-optimize-plugin,2026-08-25)
 
 - 首个 npm 发行版(静态化形态):`lib/index.js`(webServer `POST /prompt-optimize` 路由)+ `lib/client.js`(模块加载器工厂 + `fetch`);

@@ -20,7 +20,11 @@
 
 ![面板与输入栏全景](docs/assets/optimize-panel-input.png)
 
-> 以上为暗色主题真实界面截图(`docs/assets/`);示例草稿文本取自演示会话,你可自行替换为更通用的截图。
+**点击「应用」后**(草稿被替换为优化文本)
+
+![应用后效果](docs/assets/applied.png)
+
+> 以上为当前版本(0.0.1/v10)真实运行截图(`docs/assets/`);演示草稿为通用示例「帮我写一个周报生成工具」。截图可由 `scripts/demo-shots.mjs` 自动重新生成。
 
 ## ✨ 核心亮点
 
@@ -109,7 +113,10 @@ dsh-prompt-optimize-plugin/
 ├── docs/
 │   ├── changelog.md     # 迭代历史(pkg-1 … pkg-10 + npm 发布记录)
 │   ├── juejin.md        # 掘金平台介绍文案
-│   └── douyin-script.md # 抖音短视频脚本
+│   ├── douyin-script.md # 抖音短视频脚本
+│   └── assets/          # 效果展示图(真实运行截图)
+├── scripts/
+│   └── demo-shots.mjs   # 演示截图脚本(puppeteer-core,自动化生成 assets 效果图)
 ├── CONTRIBUTING.md      # 贡献指南
 └── CODE_OF_CONDUCT.md   # 行为准则
 ```

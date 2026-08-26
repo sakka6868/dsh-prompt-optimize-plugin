@@ -31,26 +31,28 @@
 
 **图① ✨ 优化按钮位置**(裁剪自真实运行界面)
 
-![✨ 优化按钮位置](assets/effect-input-row.png)
+![✨ 优化按钮位置](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/effect-input-row.png)
 
 **图② 优化对比面板**(点击 ✨ 后弹出,含「应用 / 放弃」)
 
-![优化对比面板](assets/effect-panel.png)
+![优化对比面板](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/effect-panel.png)
 
 **图③ 面板 + 输入栏全景**
 
-![面板与输入栏全景](assets/optimize-panel-input.png)
+![面板与输入栏全景](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/optimize-panel-input.png)
 
 **图④ 点击「应用」后**(草稿被替换为优化后的提示词)
 
-![应用后效果](assets/applied.png)
+![应用后效果](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/applied.png)
 
 **使用说明**:
 
-- 以上均为暗色主题下、**当前版本(0.0.1/v10)的真实运行截图**,可直接用于掘金配图;
+- 以上均为暗色主题下、**当前版本(0.0.1/v10)的真实运行截图**;图片已引用仓库公开 CDN 地址(jsDelivr,`@main` 分支),**复制到掘金编辑器可直接显示**;
+- 若某张图片在编辑器中刷新失败(CDN 网络波动),可改用备用源替换对应行:
+  - GitHub raw:`https://raw.githubusercontent.com/sakka6868/dsh-prompt-optimize-plugin/main/docs/assets/<文件名>`;
+  - 或方式 B:在掘金编辑器「插入图片 → 上传本地文件」,上传 `docs/assets/` 下的同名图片文件,再替换 markdown 引用;
 - 演示草稿为通用示例「帮我写一个周报生成工具」,无业务敏感内容;
-- 图①右侧可另加箭头高亮 ✨ 按钮;图②③④ 建议按「面板 → 全景 → 应用后」顺序连续展示;
-- 掘金编辑器支持直接上传本地图片(上传 `docs/assets/` 下文件后替换相对引用即可)。
+- 图①右侧可另加箭头高亮 ✨ 按钮;图②③④ 建议按「面板 → 全景 → 应用后」顺序连续展示。
 
 ### 核心亮点(为什么值得用)
 

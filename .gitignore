@@ -1,0 +1,22 @@
+# dependencies / build artifacts
+node_modules/
+dist/
+*.tgz
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+
+# logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# local settings
+*.local
+.env
+.env.*

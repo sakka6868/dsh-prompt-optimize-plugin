@@ -1,0 +1,53 @@
+{
+  "name": "dsh-prompt-optimize-plugin",
+  "version": "0.0.1",
+  "description": "对话输入栏提示词优化 DSH 插件:发送按钮左侧的优化按钮 + 输入框正上方的优化对比面板。v0.2.0 静态化形态(cordis 插件包):Host 半部经 webServer 路由提供优化,Client 半部为模块加载器工厂包。源码对应动态插件 pmopt-1/pkg-10(src/host.js、src/client.js)。",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "docs"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": false,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-runtime": ">=0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-locale": ">=0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.1.0-rc.6",
+    "react": "^18.2.0"
+  },
+  "keywords": [
+    "dsh",
+    "cordis",
+    "dynamic-plugin",
+    "prompt-optimize"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

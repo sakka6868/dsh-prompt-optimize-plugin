@@ -1,111 +1,88 @@
-# 掘金介绍文案(草稿)
+# dsh-prompt-optimize-plugin:DeepSeek Harness 输入栏提示词优化插件
 
-> 发布建议:配 3 张效果图(形式详见下文「效果展示图」),标题三选一。
+一个为 DeepSeek Harness(DSH)输入栏开发的提示词优化插件。在发送按钮左侧提供优化按钮,可将草稿提示词改写为结构更清晰的版本,供用户在发送前确认或放弃。
 
-## 标题候选
+## 背景
 
-1. 《我给 DeepSeek Harness 写了个"提示词优化"插件:一个 ✨ 按钮,让模糊需求秒变高质量提示词》
-2. 《还在手动打磨提示词?我在 AI 编程工具的输入栏里塞了一个"一键优化",体验直接拉满》
-3. 《开源一个 DSH 输入栏提示词优化插件:点击即优化,对比面板可控可撤销,附完整实现》
+提示词质量会影响 AI 输出的质量,但用户通常不会花时间把提示词写成结构化需求。该插件将这个步骤简化为一次点击:点击按钮后,由当前会话使用的模型对草稿进行改写,并显示原文与优化结果的对比。
 
----
+## 功能说明
 
-## 正文
+- 输入栏发送按钮左侧新增 ✨ 按钮;草稿为空时按钮不可用,优化进行中显示加载状态;
+- 优化结果面板悬浮于输入框正上方,宽度与输入框同步,高度随内容自适应;
+- 面板同时显示原文与优化结果;点击「应用」以优化结果替换草稿,点击「放弃」保持草稿不变;
+- 原文默认折叠,可点击「查看原提示词」展开;
+- 面板状态与会话绑定,切换会话后自动清空;
+- 失败时(模型不可用、未配置模型、模型无输出等)面板显示错误信息,不影响输入。
 
-### 开头:先问你一个问题
+## 效果展示
 
-你有没有过这种经历:在 AI 工具里憋了半天,敲出来的提示词还是"帮我写个功能",然后看着模型的回答陷入沉默——不是模型不行,是**提示词太糊了**。
+以下为当前版本(0.0.1)的真实运行截图。
 
-我们总说"好问题值千金",但在真实使用里,很少有人愿意花 5 分钟把提示词打磨成结构化需求。所以,我写了个插件,把这件事变成**点一下按钮**。
-
-### 它是什么
-
-`dsh-prompt-optimize-plugin` —— 一个给 [DeepSeek Harness](https://github.com/) 输入栏做的「提示词优化」插件(类似 Qoder 的"优化输入")。
-
-- 在发送按钮左侧,多了一个 **✨ 按钮**;
-- 点击后,当前模型自动把你的草稿改写成更清晰、具体、可执行的提示词;
-- 输入框上方弹出**对比面板**:左边原文、右边优化结果,「应用」一键替换,「放弃」随时收手;
-- 宽度跟随输入框、高度随内容自适应,面板挂会话——切会话不串台。
-
-### 效果展示图(真实界面截图)
-
-**图① ✨ 优化按钮位置**(裁剪自真实运行界面)
+**图① ✨ 按钮位置**
 
 ![✨ 优化按钮位置](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/effect-input-row.png)
 
-**图② 优化对比面板**(点击 ✨ 后弹出,含「应用 / 放弃」)
+**图② 优化对比面板**
 
 ![优化对比面板](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/effect-panel.png)
 
-**图③ 面板 + 输入栏全景**
+**图③ 面板与输入栏全景**
 
 ![面板与输入栏全景](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/optimize-panel-input.png)
 
-**图④ 点击「应用」后**(草稿被替换为优化后的提示词)
+**图④ 点击「应用」后**
 
 ![应用后效果](https://cdn.jsdelivr.net/gh/sakka6868/dsh-prompt-optimize-plugin@main/docs/assets/applied.png)
 
-**使用说明**:
+图片引用的是仓库公开 CDN 地址;若个别图片无法显示,可改为 GitHub raw 地址(`https://raw.githubusercontent.com/sakka6868/dsh-prompt-optimize-plugin/main/docs/assets/<文件名>`),或在编辑器中上传 `docs/assets/` 下的本地文件。
 
-- 以上均为暗色主题下、**当前版本(0.0.1/v10)的真实运行截图**;图片已引用仓库公开 CDN 地址(jsDelivr,`@main` 分支),**复制到掘金编辑器可直接显示**;
-- 若某张图片在编辑器中刷新失败(CDN 网络波动),可改用备用源替换对应行:
-  - GitHub raw:`https://raw.githubusercontent.com/sakka6868/dsh-prompt-optimize-plugin/main/docs/assets/<文件名>`;
-  - 或方式 B:在掘金编辑器「插入图片 → 上传本地文件」,上传 `docs/assets/` 下的同名图片文件,再替换 markdown 引用;
-- 演示草稿为通用示例「帮我写一个周报生成工具」,无业务敏感内容;
-- 图①右侧可另加箭头高亮 ✨ 按钮;图②③④ 建议按「面板 → 全景 → 应用后」顺序连续展示。
+## 主要特点
 
-### 核心亮点(为什么值得用)
+1. 复用当前会话默认模型,无需额外配置 API Key,不改变原有模型选择;
+2. 优化前后同屏对比,改动内容可直接查看;
+3. 只有点击「应用」后草稿才会被替换;点击「放弃」则保持不变,可反复优化;
+4. 优化期间输入框仍可正常使用;失败时显示明确错误信息;
+5. 同一仓库提供两种形态:「动态插件源码」与「npm 静态插件包」,分别用于开发调试与常规部署。
 
-1. **零配置** — 复用当前会话默认模型,不新增 API Key,不改变你的模型习惯;
-2. **看得见的对比** — 优化前后同屏,改了什么一目了然,而不是悄悄替你换掉草稿;
-3. **可控可逆** — 「应用」才生效,「放弃」不改草稿;不满意可多次优化;
-4. **不打断** — 优化期间输入框照常可用,失败给出可读错误而不是静默吞掉;
-5. **双形态** — 同一个仓库同时给出「动态插件源码」与「npm 静态插件包」两种安装方式,开发尝鲜与正式部署都能用。
+## 应用场景
 
-### 应用场景
+- 日常问答:将笼统的问题改写为包含背景、目标、步骤与约束的提示词;
+- 代码相关:为代码改动补充任务说明、边界条件与验证要求;
+- 长文档生成:拆分写作需求,使输出结构清晰;
+- 教学与分享:通过前后对比展示提示词改写的方法。
 
-- **日常问答**:把"帮我弄个方案"优化成"输出一份包含背景、目标、步骤、约束的方案模板";
-- **写代码**:把"优化这段代码"变成明确任务、边界、语言与测试要求的提示词;
-- **长文档生成**:拆分写作需求,让输出结构清晰、可执行;
-- **教学/分享**:给新手演示"什么是好提示词"时,一键前后对比,效果胜过千言万语。
+## 技术实现
 
-### 技术实现(为什么敢拿出来分享)
+- 架构:浏览器端(Client)负责 ✨ 按钮与对比面板,宿主端(Host)负责模型调用;模型信息取自 `agentDefaultModel.currentSelection()`,调用通过 `llm.stream()` 完成,输出按 `text-delta` 分片拼接,无文本时以 `reasoning-delta` 兜底;
+- 双形态:`src/` 为动态插件原始函数体(直接粘贴使用);`lib/` 为静态化适配产物(webServer 路由 + 模块加载器工厂);
+- 已知边界:动态 Host 沙箱不提供 `AbortController` 等全局,模型调用不传 signal,超时依赖适配器自身策略;推理模型思考可能占用输出预算,故 `maxTokens` 设为 4096 并加入 reasoning 兜底;按钮排序依赖框架 CSS Module 类名,框架升级后可能需要更新;
+- 约定:纯 JavaScript,无 TypeScript/JSX;样式使用 `--dsw-*` 主题变量。完整演进历史见 `docs/changelog.md`。
 
-- **架构**:Client(浏览器)负责 ✨ 按钮与面板 UI,Host(宿主)负责调用 LLM —— `agentDefaultModel.currentSelection()` 取当前模型,`llm.stream()` 流式收集分片,文本缺失时用 reasoning 分片兜底(应对推理模型把思考吃满输出预算的坑);
-- **双形态**:`src/` 是动态插件的原始函数体(复制即用);`lib/` 是静态化适配(webServer 路由 + 模块加载器工厂),一个仓库两种部署;
-- **踩过的坑**(changelog 里都有):动态 Host 沙箱没有 `AbortController`、推理模型思考耗尽 `maxTokens`、面板测量前的 ref 死锁……每次都记录在案;
-- **约定**:纯 JavaScript、无 TS/JSX、主题 CSS 变量,双端语义同步。
+## 安装使用
 
-### 快速开始
+方式一:动态模式(开发调试)。在 DSH 的 Cordis 动态插件面板新建插件,将 `src/host.js` 与 `src/client.js` 分别粘贴到 `code.host` 与 `code.client`,激活后即可使用。
 
-```bash
-# 静态安装(正式):
+方式二:静态插件(npm 包):
+
+```powershell
 dsh plugin --profile web add dsh-prompt-optimize-plugin@0.0.1
-# 并在 ~/.dsh/profiles/web/cordis.patch.yml 注册:
-# - insert:
-#     - id: dsh-prompt-optimize
-#       name: 'dsh-prompt-optimize-plugin'
 ```
 
-动态尝鲜:把 `src/host.js`、`src/client.js` 粘进 DSH 的 Cordis 动态插件面板即可。
+在 `~/.dsh/profiles/web/cordis.patch.yml` 中注册:
 
-完整文档(架构图、契约表、演进历史)在仓库 README 里。
+```yaml
+- insert:
+    - id: dsh-prompt-optimize
+      name: 'dsh-prompt-optimize-plugin'
+```
 
-### 结尾
+重启 DSH web 服务后生效。
 
-写这个插件的初衷,是把"把提示词写好"这件反直觉的事,变成一次轻松的点击。
+## 项目信息
 
-如果你也在用 DeepSeek Harness,欢迎装起来试试;有想法或者想一起玩,评论区聊聊,也可以直接来仓库提 issue / PR —— **好功能是改出来的,不是写出来的**。
+- 项目仓库(GitHub):https://github.com/sakka6868/dsh-prompt-optimize-plugin
+- npm 包:`dsh-prompt-optimize-plugin@0.0.1`
+- 许可证:MIT
 
----
-
-**📦 项目仓库(GitHub)**:https://github.com/sakka6868/dsh-prompt-optimize-plugin
-**npm**:**`dsh-prompt-optimize-plugin@0.0.1`**
-
-### ❤️ 支持一下
-
-如果你觉得这个插件帮你省下了反复打磨提示词的时间,欢迎**给项目点亮一个 ⭐ Star** —— 这是对开源作者最大的鼓励!
-
-⭐ **一键 Star**:https://github.com/sakka6868/dsh-prompt-optimize-plugin
-
-你的每一次 Star、issue、PR,都会让我更有动力把这个插件做得更好;有想加的功能,评论区或 issue 里告诉我,说不定下一个版本就安排上了。
+欢迎使用。如有问题或改进建议,可在仓库提交 issue 或 Pull Request;如果项目对你有帮助,也欢迎 Star 支持。

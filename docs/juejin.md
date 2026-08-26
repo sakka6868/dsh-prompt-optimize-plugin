@@ -99,5 +99,13 @@ dsh plugin --profile web add dsh-prompt-optimize-plugin@0.0.1
 
 ---
 
-**仓库**:`dsh-prompt-optimize-plugin`(发布后请补上 GitHub 链接)
+**📦 项目仓库(GitHub)**:https://github.com/sakka6868/dsh-prompt-optimize-plugin
 **npm**:**`dsh-prompt-optimize-plugin@0.0.1`**
+
+### ❤️ 支持一下
+
+如果你觉得这个插件帮你省下了反复打磨提示词的时间,欢迎**给项目点亮一个 ⭐ Star** —— 这是对开源作者最大的鼓励!
+
+⭐ **一键 Star**:https://github.com/sakka6868/dsh-prompt-optimize-plugin
+
+你的每一次 Star、issue、PR,都会让我更有动力把这个插件做得更好;有想加的功能,评论区或 issue 里告诉我,说不定下一个版本就安排上了。
